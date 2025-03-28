@@ -1,0 +1,149 @@
+/* ========== Global Styles ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #74ABE2, #5563DE);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ========== Login Form ========== */
+.loginform {
+    background: rgba(255, 255, 255, 0.15); /* More transparent for better glass effect */
+    backdrop-filter: blur(15px); /* Increased blur for smoother glassmorphism */
+    width: min(450px, 90%);
+    height: 360px;
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: all 0.5s;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.loginform:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 50px rgba(255, 255, 255, 0.3);
+    transform: scale(1.03);
+}
+
+/* ========== Input Fields ========== */
+.inputgroup {
+    position: relative;
+    height: 50px;
+    width: 85%;
+    margin-bottom: 25px;
+}
+
+.inputgroup input {
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s;
+    padding-left: 5px;
+}
+
+.inputgroup input:focus {
+    border-bottom: solid 2px #f7f3f3;
+}
+
+.inputgroup label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.inputgroup input:focus + label,
+.inputgroup input:valid + label {
+    transform: translateY(-30px);
+    font-size: 14px;
+    color: #eee8e7;
+}
+
+/* ========== Button ========== */
+.divcallforaction {
+    width: 85%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btnlogin {
+    border: none;
+    width: 160px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ff6f61, #ffcc00);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+}
+
+.btnlogin:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(255, 111, 97, 0.5);
+}
+
+/* ========== Error Message ========== */
+.diverror {
+    background: rgba(255, 0, 0, 0.85);
+    color: white;
+    height: 45px;
+    width: 85%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+    font-size: 14px;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.applyerrordiv {
+    visibility: visible;
+    opacity: 1;
+    animation: falldown 0.8s ease-out;
+}
+
+/* ========== Error Animation ========== */
+@keyframes falldown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    60% { opacity: 1; transform: translateY(5px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== Responsive Fixes ========== */
+@media screen and (max-width: 768px) {
+    .loginform {
+        width: 95%;
+        height: auto;
+        padding: 20px;
+    }
+}
